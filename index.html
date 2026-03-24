@@ -3,281 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Bernal</title>
+    <title>Nicolás Bernal — Jr. Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
-    <link rel="icon" href="./assets/favicon.png" type="image/png">
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo">Nicolás Bernal</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+  <!-- CURSOR -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- DESKTOP NAV -->
+  <nav id="desktop-nav">
+    <div class="logo">NB<span class="logo-dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about"      data-i18n="nav.about">About</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#projects"   data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#contact"    data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-flag" id="lang-flag-desk">&#127466;&#127480;</span>
+      <span class="lang-label" id="lang-label-desk">ES</span>
+    </button>
+  </nav>
+
+  <!-- HAMBURGER NAV -->
+  <nav id="hamburger-nav">
+    <div class="logo">NB<span class="logo-dot">.</span></div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <button class="lang-toggle lang-toggle--sm" onclick="toggleLang()">
+        <span class="lang-flag" id="lang-flag-mob">&#127466;&#127480;</span>
+        <span class="lang-label" id="lang-label-mob">ES</span>
+      </button>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
         </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Nicolás Bernal</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
+        <div class="menu-links">
+          <li><a href="#about"      onclick="toggleMenu()" data-i18n="nav.about">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#projects"   onclick="toggleMenu()" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="#contact"    onclick="toggleMenu()" data-i18n="nav.contact">Contact</a></li>
         </div>
-    </nav>
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/profile-pic.webp" alt="Nicolas Bernal profile pic">
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="profile">
+    <div class="hero-left">
+      <div class="hero-tag" data-i18n="hero.tag">Available for work</div>
+      <h1 class="hero-title">
+        <span class="line">Nicolás</span>
+        <span class="line accent-line">Bernal<em>.</em></span>
+      </h1>
+      <p class="hero-role">Jr. Web Developer <span class="divider">—</span> Full Stack</p>
+      <p class="hero-sub" data-i18n="hero.sub">Building digital experiences that work beautifully.</p>
+      <div class="btn-container">
+        <button class="btn btn-primary" onclick="window.open('./assets/Nicolas Bernal CV_EN.pdf')">
+          <span data-i18n="hero.cv">Download CV</span> <span class="btn-arrow">↓</span>
+        </button>
+        <button class="btn btn-ghost" onclick="location.href='#contact'" data-i18n="hero.contact">Contact me</button>
+      </div>
+      <div id="socials-container">
+        <a href="https://www.linkedin.com/in/itsnicobernal/" target="_blank" class="social-link">LinkedIn ↗</a>
+        <a href="https://github.com/DevNico2905" target="_blank" class="social-link">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="pic-frame">
+        <img src="./assets/profile-pic.webp" alt="Nicolás Bernal" class="profile-img">
+        <div class="frame-deco"></div>
+      </div>
+      <div class="floating-badge badge-1">HTML Advanced</div>
+      <div class="floating-badge badge-2">Spring Boot</div>
+      <div class="floating-badge badge-3">Angular</div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label" data-i18n="about.label">01 — About</div>
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="./assets/about-pic.png" alt="About Nicolás" class="about-img">
+        <div class="about-img-bg"></div>
+      </div>
+      <div class="about-content">
+        <h2 class="section-title" data-i18n="about.title">Who am I?</h2>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">2+</span>
+            <span class="stat-label" data-i18n="about.stat1">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">B.Sc.</span>
+            <span class="stat-label" data-i18n="about.stat2">Software Engineering</span>
+          </div>
         </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Nicolás Bernal</h1>
-            <p class="section__text__p2">Jr. Web Developer</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/Nicolas Bernal CV_EN.pdf')">Download CV</button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact</button>
-            </div>
-            <div id="socials-container">
-                <img
-                src="./assets/linkedin.png"
-                alt="My linkedin profile"
-                class="icon"
-                onclick="window.open('https://www.linkedin.com/in/itsnicobernal/', '_blank')">
-                <img
-                src="./assets/github.png"
-                alt="My github profile"
-                class="icon"
-                onclick="window.open('https://github.com/DevNico2905', '_blank')">
-            </div>
+        <div class="about-text">
+          <p data-i18n="about.p1">I'm a developer who loves turning ideas into working digital products. What started as curiosity became a strong passion for building web applications and understanding how systems work behind the scenes.</p>
+          <p data-i18n="about.p2">I enjoy designing clean user interfaces, structuring backend logic, and constantly learning new technologies. Development is not only about writing code — it's about solving problems and creating value.</p>
+          <p data-i18n="about.p3">I'm currently focused on growing as a full-stack developer and contributing to meaningful projects that make an impact.</p>
         </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get to know more</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img src="./assets/about-pic.png" alt="Profile picture" class="about-pic">
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/experience.png" alt="experience icon" class="icon">
-                        <h3>Experience</h3>
-                        <p>2+ years<br/>Web Development</p>
-                    </div>
-                    <div class="details-container">
-                        <img src="./assets/education.png" alt="Education icon" class="icon">
-                        <h3>Education</h3>
-                        <p>B.Sc.<br/>Software Engineering</p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p class="exp">
-                        I’m a developer who loves turning ideas into working digital products. What started as curiosity became a strong passion for building web applications and understanding how systems work behind the scenes.
-                    </p>
-                    <p class="exp">
-                        I enjoy designing clean user interfaces, structuring backend logic, and constantly learning new technologies. For me, development is not only about writing code — it’s about solving problems and creating value.
-                    </p>
-                    <p class="exp">
-                        I’m currently focused on growing as a full-stack developer and contributing to meaningful projects that make an impact.
-                    </p>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label" data-i18n="exp.label">02 — Experience</div>
+    <h2 class="section-title">Skills &amp; Stack</h2>
+    <div class="skills-grid">
+      <div class="skills-col">
+        <h3 class="skills-cat">Frontend</h3>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">HTML</span><span class="skill-level" data-i18n="level.advanced">Advanced</span></div>
+          <div class="skill-item"><span class="skill-name">CSS / Tailwind</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">JavaScript</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">Angular</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">WordPress</span><span class="skill-level" data-i18n="level.basic">Basic</span></div>
+          <div class="skill-item"><span class="skill-name">Git &amp; GitHub</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#experience'"/>
-    </section>
-    <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Frontend Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>HTML</h3>
-                                <p>Advanced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>CSS / Tailwind</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>Angular</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>JavaScript</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>WordPress</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>Git & GitHub</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Backend Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>Spring Boot</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>ASP.NET</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>SQL Server</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>PostgreSQL</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>Docker</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                            <div>
-                                <h3>AWS</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="skills-col">
+        <h3 class="skills-cat">Backend</h3>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Spring Boot</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">ASP.NET</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">SQL Server</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">PostgreSQL</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">Docker</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
+          <div class="skill-item"><span class="skill-name">AWS</span><span class="skill-level" data-i18n="level.intermediate">Intermediate</span></div>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'"/>
-    </section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-1.webp" alt="Project 1" class="project-img">
-                    </div>
-                    <h2 class="experience-sub-title project-title">Bowling Software</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/DevNico2905/appbolera', '_blank')">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://bowlingdemo.nick-bern.com/', '_blank')">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-2.webp" alt="Project 2" class="project-img">
-                    </div>
-                    <h2 class="experience-sub-title project-title">Uni Payments Website</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/DevNico2905/Sistema_Pagos_Unisalles', '_blank')">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/DevNico2905/Sistema_Pagos_Unisalles', '_blank')">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/project-3.webp" alt="Project 3" class="project-img">
-                    </div>
-                    <h2 class="experience-sub-title project-title">BibloSystem</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/DevNico2905/BibloSystem', '_blank')">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/DevNico2905/BibloSystem', '_blank')">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label" data-i18n="proj.label">03 — Projects</div>
+    <h2 class="section-title" data-i18n="proj.title">Recent Work</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-img-wrap">
+          <img src="./assets/project-1.webp" alt="Bowling Software" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <button onclick="window.open('https://github.com/DevNico2905/appbolera','_blank')">GitHub ↗</button>
+              <button onclick="window.open('https://bowlingdemo.nick-bern.com/','_blank')" data-i18n="proj.demo">Live Demo ↗</button>
             </div>
+          </div>
         </div>
-        <img src="./assets/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#contact'"/>
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="email icon" class="icon contact-icon email-icon">
-                <p><a href="mailto:nicobernal2905@gmail.com">bernalnico2905@gmail.com</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="linkedin icon" class="icon contact-icon">
-                <p><a href="https://www.linkedin.com/in/itsnicobernal/" target="_blank">LinkedIn</a></p>
-            </div>
+        <div class="project-info">
+          <h3 class="project-title">Bowling Software</h3>
+          <p class="project-desc" data-i18n="proj.p1">Management system for bowling alleys.</p>
+          <div class="project-tags"><span>Angular</span><span>Spring Boot</span><span>PostgreSQL</span><span>Electron</span></div>
         </div>
-    </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-img-wrap">
+          <img src="./assets/project-2.webp" alt="Uni Payments" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <button onclick="window.open('https://github.com/DevNico2905/Sistema_Pagos_Unisalles','_blank')">GitHub ↗</button>
             </div>
-        </nav>
-        <p>Copyright &#169; 2024 Nicolas Bernal. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">Uni Payments Website</h3>
+          <p class="project-desc" data-i18n="proj.p2">University payments management platform.</p>
+          <div class="project-tags"><span>Angular</span><span>Spring Boot</span><span>PostgreSQL</span></div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-img-wrap">
+          <img src="./assets/project-3.webp" alt="BibloSystem" class="project-img">
+          <div class="project-overlay">
+            <div class="project-links">
+              <button onclick="window.open('https://github.com/DevNico2905/BibloSystem','_blank')">GitHub ↗</button>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title">BibloSystem</h3>
+          <p class="project-desc" data-i18n="proj.p3">Library management system.</p>
+          <div class="project-tags"><span>Java</span><span>MySQL</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" data-i18n="contact.label">04 — Contact</div>
+    <div class="contact-inner">
+      <h2 class="contact-title" data-i18n="contact.title">Let's talk.</h2>
+      <p class="contact-sub" data-i18n="contact.sub">Open to opportunities, collabs &amp; coffee chats.</p>
+      <div class="contact-links">
+        <a href="mailto:bernalnico2905@gmail.com" class="contact-pill">
+          <span class="pill-icon">✉</span> bernalnico2905@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/itsnicobernal/" target="_blank" class="contact-pill">
+          <span class="pill-icon">in</span> LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="logo">NB<span class="logo-dot">.</span></div>
+      <ul class="nav-links footer-links">
+        <li><a href="#about"      data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#projects"   data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#contact"    data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2024 Nicolás Bernal. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
